@@ -1,0 +1,15 @@
+{
+	"components": {
+	    "x-774840-catalog-select": {
+	        "innerComponents": [],
+			"uiBuilder": {
+				"associatedTypes": ["global.core", "global.landing-page"],
+				"label": "Catalog Select",
+				"icon": "document-outline",
+				"description": "A description of my component",
+				"category": "primitives"
+			}
+	    }
+	},
+	"scopeName": "x_774840_domuser_0"
+}
