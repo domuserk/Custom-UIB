@@ -1,28 +1,22 @@
 import { createCustomElement, actionTypes } from '@servicenow/ui-core';
-import snabbdom from '@servicenow/ui-renderer-snabbdom';
+import snabbdom, { createRef } from '@servicenow/ui-renderer-snabbdom';
 import styles from './styles.scss';
+import QRCode from "./qrcode";
 
-const { COMPONENT_PROPERTY_CHANGED } = actionTypes;
+const { COMPONENT_PROPERTY_CHANGED, COMPONENT_DOM_READY } = actionTypes;
+
+const qrCodeRef = createRef();
+
+var qrCodeInstance;
+
 
 const view = (state, { updateState, updateProperties }) => {
 	const { properties } = state;
 
-	const init = () => { 
-		// const div = document.body.childNodes[document.body.childNodes.length -1];
-		
-		// var qrcode = new QRCode(div.childNodes[1].shadowRoot.childNodes[1].childNodes[1]);
-		// qrcode.makeCode('Ryan');
-
-		// window.qrcodeInstance = new QRCode('qrcode');
-		// window.qrcodeInstance.makeCode('Ryan');
-	}
-
 	return (
 		<div>	
-			<div >QrCode Generated 2</div>
-			<div id="qrcode"></div>
-			{/* <button on-click={() => updateProperties({ qrcode: 'NovoValor'})}>Clique</button> */}
-			{/* <button on-click={() => init()}>Clique</button> */}
+			<div >QrCode Generate</div>
+			<div ref={qrCodeRef}/>
 		</div>
 	);
 };
@@ -35,8 +29,11 @@ createCustomElement('x-774840-catalog-select', {
 		qrcode: { default: "Ryan" }
 	},
 	actionHandlers: {
+		[COMPONENT_DOM_READY]: ({ action: { payload } }) => {
+			qrCodeInstance = new QRCode(qrCodeRef.current, 'Ryan');
+		},
 		[COMPONENT_PROPERTY_CHANGED]: ({ action: { payload } }) => {
-			//window.qrcodeInstance.makeCode(payload.value);
+			qrCodeInstance.makeCode(payload.value);
 		}
 	}
 });
