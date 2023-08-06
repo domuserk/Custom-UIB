@@ -8,7 +8,14 @@
 				"icon": "document-outline",
 				"description": "A description of my component",
 				"category": "primitives"
-			}
+			},
+			"properties": [
+				{
+					"name": "qrcode",
+					"label": "QrCode Value",
+					"fielType": "string"
+				}
+			]
 	    }
 	},
 	"scopeName": "x_774840_domuser_0"
