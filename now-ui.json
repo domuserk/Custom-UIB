@@ -13,7 +13,9 @@
 				{
 					"name": "qrcode",
 					"label": "QrCode Value",
-					"fielType": "string"
+					"fielType": "string",
+					"readOnly": false,
+					"defaultValue": "Default Value Example"
 				}
 			]
 	    }
