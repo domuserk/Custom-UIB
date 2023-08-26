@@ -22,7 +22,6 @@
 		"@servicenow/sass-theme": "quebec",
 		"@servicenow/ui-core": "quebec",
 		"@servicenow/ui-renderer-snabbdom": "quebec",
-		"html-pdf-adaptive": "^1.0.8",
 		"html2pdf.js": "^0.9.0"
 	},
 	"devDependencies": {
